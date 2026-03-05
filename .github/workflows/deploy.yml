@@ -69,16 +69,24 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build Deepstaging docs
-        run: zensical build --strict -f repos/deepstaging/mkdocs.yml -d $GITHUB_WORKSPACE/output/deepstaging
+        run: |
+          zensical build --strict -f repos/deepstaging/mkdocs.yml
+          mv repos/deepstaging/site output/deepstaging
 
       - name: Build Roslyn docs
-        run: zensical build --strict -f repos/roslyn/mkdocs.yml -d $GITHUB_WORKSPACE/output/roslyn
+        run: |
+          zensical build --strict -f repos/roslyn/mkdocs.yml
+          mv repos/roslyn/site output/roslyn
 
       - name: Build Web docs
-        run: zensical build --strict -f repos/deepstaging-web/mkdocs.yml -d $GITHUB_WORKSPACE/output/web
+        run: |
+          zensical build --strict -f repos/deepstaging-web/mkdocs.yml
+          mv repos/deepstaging-web/site output/web
 
       - name: Build landing page
-        run: zensical build --strict -d $GITHUB_WORKSPACE/output
+        run: |
+          zensical build --strict
+          cp -r site/* output/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
