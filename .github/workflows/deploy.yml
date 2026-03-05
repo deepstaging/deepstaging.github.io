@@ -1,0 +1,97 @@
+# SPDX-FileCopyrightText: 2024-present Deepstaging
+# SPDX-License-Identifier: RPL-1.5
+name: Deploy Documentation
+
+on:
+  repository_dispatch:
+    types: [docs-updated]
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - 'requirements.txt'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout docs site
+        uses: actions/checkout@v6
+
+      - name: Checkout Deepstaging
+        uses: actions/checkout@v6
+        with:
+          repository: deepstaging/deepstaging
+          token: ${{ secrets.DOCS_DEPLOY_PAT }}
+          path: repos/deepstaging
+
+      - name: Checkout Roslyn
+        uses: actions/checkout@v6
+        with:
+          repository: deepstaging/roslyn
+          token: ${{ secrets.DOCS_DEPLOY_PAT }}
+          path: repos/roslyn
+
+      - name: Checkout Web
+        uses: actions/checkout@v6
+        with:
+          repository: deepstaging/deepstaging-web
+          token: ${{ secrets.DOCS_DEPLOY_PAT }}
+          path: repos/deepstaging-web
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build Deepstaging docs
+        run: zensical build --strict -f repos/deepstaging/mkdocs.yml -d $GITHUB_WORKSPACE/output/deepstaging
+
+      - name: Build Roslyn docs
+        run: zensical build --strict -f repos/roslyn/mkdocs.yml -d $GITHUB_WORKSPACE/output/roslyn
+
+      - name: Build Web docs
+        run: zensical build --strict -f repos/deepstaging-web/mkdocs.yml -d $GITHUB_WORKSPACE/output/web
+
+      - name: Build landing page
+        run: zensical build --strict -d $GITHUB_WORKSPACE/output
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: output
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
