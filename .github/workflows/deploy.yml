@@ -70,6 +70,7 @@ jobs:
 
       - name: Build Deepstaging docs
         run: |
+          mkdir -p output
           zensical build --strict -f repos/deepstaging/mkdocs.yml
           mv repos/deepstaging/site output/deepstaging
 
