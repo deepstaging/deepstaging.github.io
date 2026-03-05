@@ -30,24 +30,26 @@ case "$CMD" in
     build)
         echo "Building all sites..."
         rm -rf "$OUTPUT_DIR"
+        mkdir -p "$OUTPUT_DIR"
 
         echo "Building Deepstaging docs..."
         "$VENV_DIR/bin/zensical" build --strict \
-            -f "$REPOS_DIR/deepstaging/mkdocs.yml" \
-            -d "$OUTPUT_DIR/deepstaging"
+            -f "$REPOS_DIR/deepstaging/mkdocs.yml"
+        mv "$REPOS_DIR/deepstaging/site" "$OUTPUT_DIR/deepstaging"
 
         echo "Building Roslyn docs..."
         "$VENV_DIR/bin/zensical" build --strict \
-            -f "$REPOS_DIR/roslyn/mkdocs.yml" \
-            -d "$OUTPUT_DIR/roslyn"
+            -f "$REPOS_DIR/roslyn/mkdocs.yml"
+        mv "$REPOS_DIR/roslyn/site" "$OUTPUT_DIR/roslyn"
 
         echo "Building Web docs..."
         "$VENV_DIR/bin/zensical" build --strict \
-            -f "$REPOS_DIR/deepstaging-web/mkdocs.yml" \
-            -d "$OUTPUT_DIR/web"
+            -f "$REPOS_DIR/deepstaging-web/mkdocs.yml"
+        mv "$REPOS_DIR/deepstaging-web/site" "$OUTPUT_DIR/web"
 
         echo "Building landing page..."
-        "$VENV_DIR/bin/zensical" build --strict -d "$OUTPUT_DIR"
+        "$VENV_DIR/bin/zensical" build --strict
+        cp -r site/* "$OUTPUT_DIR/"
 
         echo "All sites built to ./site"
         ;;
