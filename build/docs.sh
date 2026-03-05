@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2024-present Deepstaging
 # SPDX-License-Identifier: RPL-1.5
 
-# Serves the landing page or builds all documentation sites.
+# Serves or builds the unified documentation site.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -16,47 +16,35 @@ fi
 
 "$VENV_DIR/bin/pip" install -r requirements.txt --quiet
 
+REPOS_DIR="$(cd .. && pwd)"
+
+assemble_docs() {
+    echo "Assembling docs from sibling repos..."
+    rm -rf docs/deepstaging docs/roslyn docs/web
+    cp -r "$REPOS_DIR/deepstaging/docs" docs/deepstaging
+    cp -r "$REPOS_DIR/roslyn/docs" docs/roslyn
+    cp -r "$REPOS_DIR/deepstaging-web/docs" docs/web
+}
+
 CMD="${1:-serve}"
 shift 2>/dev/null || true
 
-REPOS_DIR="$(cd .. && pwd)"
-OUTPUT_DIR="$(pwd)/site"
-
 case "$CMD" in
     serve)
-        echo "Starting dev server at http://127.0.0.1:8000 (landing page only)"
+        assemble_docs
+        echo "Starting dev server at http://127.0.0.1:8000"
         "$VENV_DIR/bin/zensical" serve "$@"
         ;;
     build)
-        echo "Building all sites..."
-        rm -rf "$OUTPUT_DIR"
-        mkdir -p "$OUTPUT_DIR"
-
-        echo "Building Deepstaging docs..."
-        "$VENV_DIR/bin/zensical" build --strict \
-            -f "$REPOS_DIR/deepstaging/mkdocs.yml"
-        mv "$REPOS_DIR/deepstaging/site" "$OUTPUT_DIR/deepstaging"
-
-        echo "Building Roslyn docs..."
-        "$VENV_DIR/bin/zensical" build --strict \
-            -f "$REPOS_DIR/roslyn/mkdocs.yml"
-        mv "$REPOS_DIR/roslyn/site" "$OUTPUT_DIR/roslyn"
-
-        echo "Building Web docs..."
-        "$VENV_DIR/bin/zensical" build --strict \
-            -f "$REPOS_DIR/deepstaging-web/mkdocs.yml"
-        mv "$REPOS_DIR/deepstaging-web/site" "$OUTPUT_DIR/web"
-
-        echo "Building landing page..."
-        "$VENV_DIR/bin/zensical" build --strict
-        cp -r site/* "$OUTPUT_DIR/"
-
-        echo "All sites built to ./site"
+        assemble_docs
+        echo "Building site..."
+        "$VENV_DIR/bin/zensical" build --strict "$@"
+        echo "Site built to ./site"
         ;;
     *)
         echo "Usage: $0 [serve|build]"
-        echo "  serve  - Start local dev server for landing page (default)"
-        echo "  build  - Build all sites into ./site"
+        echo "  serve  - Start local dev server (default)"
+        echo "  build  - Build static site"
         exit 1
         ;;
 esac

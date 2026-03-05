@@ -1,0 +1,5 @@
+site/
+.venv/
+docs/deepstaging/
+docs/roslyn/
+docs/web/
