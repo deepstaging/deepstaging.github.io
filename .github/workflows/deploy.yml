@@ -3,8 +3,6 @@
 name: Deploy Documentation
 
 on:
-  repository_dispatch:
-    types: [docs-updated]
   push:
     branches:
       - main
