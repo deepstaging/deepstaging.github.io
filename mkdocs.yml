@@ -66,176 +66,179 @@ plugins:
 
 nav:
   - Home: index.md
-
   - Deepstaging:
-    - Home: deepstaging/index.md
-    - Getting Started: deepstaging/getting-started.md
-    - Guide:
-      - Build a CMS: deepstaging/guide/index.md
-      - Project Setup: deepstaging/guide/project-setup.md
-      - Effects & Runtime: deepstaging/guide/effects-and-runtime.md
-      - Testing Effects: deepstaging/guide/testing-effects.md
-      - Commands & Queries: deepstaging/guide/commands-and-queries.md
-      - Validation & Authorization: deepstaging/guide/validation-and-authorization.md
-      - Event-Driven Architecture: deepstaging/guide/event-driven.md
-      - Infrastructure: deepstaging/guide/infrastructure.md
-      - Adding a Web API: deepstaging/guide/adding-a-web-api.md
-      - Integration Testing: deepstaging/guide/integration-testing.md
-    - Modules:
-      - Effects:
-        - Overview: deepstaging/modules/effects/index.md
-        - Pre-Built Modules: deepstaging/modules/effects/prebuilt.md
-        - Resilience: deepstaging/modules/effects/resilience.md
-        - DbContext: deepstaging/modules/effects/dbcontext.md
-      - Dispatch:
-        - Overview: deepstaging/modules/dispatch/index.md
-        - Validation: deepstaging/modules/dispatch/validation.md
-        - Authorization: deepstaging/modules/dispatch/authorization.md
-      - Data Store:
-        - Overview: deepstaging/modules/datastore/index.md
-      - Strong IDs:
-        - Overview: deepstaging/modules/ids/index.md
-        - Converters: deepstaging/modules/ids/converters.md
-      - Configuration:
-        - Overview: deepstaging/modules/config/index.md
-        - Secrets: deepstaging/modules/config/secrets.md
-      - HTTP Client:
-        - Overview: deepstaging/modules/httpclient/index.md
-        - Authentication: deepstaging/modules/httpclient/authentication.md
-      - Event Queue:
-        - Overview: deepstaging/modules/eventqueue/index.md
-      - File Storage:
-        - Overview: deepstaging/modules/storage/index.md
-      - Search:
-        - Overview: deepstaging/modules/search/index.md
-      - Notifications:
-        - Overview: deepstaging/modules/notifications/index.md
-      - Audit Trail:
-        - Overview: deepstaging/modules/audit/index.md
-      - Background Jobs:
-        - Overview: deepstaging/modules/jobs/index.md
-    - Testing:
-      - Overview: deepstaging/testing/index.md
-      - Test Runtime: deepstaging/testing/test-runtime.md
-      - Integration Testing: deepstaging/testing/integration-testing.md
-    - Concepts:
-      - MSBuild Integration: deepstaging/concepts/msbuild-integration.md
-    - Diagnostics Reference: deepstaging/diagnostics.md
-
-  - Roslyn:
-    - Home: roslyn/index.md
-    - Getting Started: roslyn/getting-started.md
-    - Templates: roslyn/templates.md
-    - Best Practices: roslyn/best-practices.md
-    - Guides:
-      - Project Organization: roslyn/guides/project-organization.md
-      - End-to-End Walkthrough: roslyn/guides/end-to-end.md
-      - Projection Pattern: roslyn/guides/projection-pattern.md
-      - Generators: roslyn/guides/generators.md
-      - Analyzers: roslyn/guides/analyzers.md
-      - CodeFixes: roslyn/guides/codefixes.md
-      - Testing: roslyn/guides/testing.md
-    - API Reference:
-      - Queries:
-        - Overview: roslyn/api/queries/index.md
-        - TypeQuery: roslyn/api/queries/type-query.md
-        - MethodQuery: roslyn/api/queries/method-query.md
-        - PropertyQuery: roslyn/api/queries/property-query.md
-        - FieldQuery: roslyn/api/queries/field-query.md
-        - ConstructorQuery: roslyn/api/queries/constructor-query.md
-        - EventQuery: roslyn/api/queries/event-query.md
-        - ParameterQuery: roslyn/api/queries/parameter-query.md
-      - Projections:
-        - Overview: roslyn/api/projections/index.md
-        - OptionalSymbol: roslyn/api/projections/optional-symbol.md
-        - ValidSymbol: roslyn/api/projections/valid-symbol.md
-        - OptionalAttribute: roslyn/api/projections/optional-attribute.md
-        - ValidAttribute: roslyn/api/projections/valid-attribute.md
-        - AttributeQuery: roslyn/api/projections/attribute-query.md
-        - OptionalArgument: roslyn/api/projections/optional-argument.md
-        - OptionalValue: roslyn/api/projections/optional-value.md
-        - Syntax Wrappers: roslyn/api/projections/syntax-wrappers.md
-        - XmlDocumentation: roslyn/api/projections/xml-documentation.md
-        - EquatableArray: roslyn/api/projections/equatable-array.md
-        - Snapshots: roslyn/api/projections/snapshots.md
-        - PipelineModel: roslyn/api/projections/pipeline-model.md
-      - Emit:
-        - Overview: roslyn/api/emit/index.md
-        - TypeBuilder: roslyn/api/emit/type-builder.md
-        - TypeBuilder Extensions: roslyn/api/emit/type-builder-extensions.md
-        - MethodBuilder: roslyn/api/emit/method-builder.md
-        - PropertyBuilder: roslyn/api/emit/property-builder.md
-        - FieldBuilder: roslyn/api/emit/field-builder.md
-        - ConstructorBuilder: roslyn/api/emit/constructor-builder.md
-        - Other Builders: roslyn/api/emit/other-builders.md
-        - BodyBuilder: roslyn/api/emit/body-builder.md
-        - Patterns: roslyn/api/emit/patterns.md
-        - Directives: roslyn/api/emit/directives.md
-        - GlobalUsings: roslyn/api/emit/global-usings.md
-        - Support Types: roslyn/api/emit/support-types.md
-      - Type System:
-        - Primitives: roslyn/api/emit/type-ref.md
-        - Types: roslyn/api/types.md
-        - Expressions: roslyn/api/expressions.md
-      - Analyzers:
-        - Overview: roslyn/api/analyzers/index.md
-        - SymbolAnalyzer: roslyn/api/analyzers/symbol-analyzer.md
-        - MultiDiagnosticSymbolAnalyzer: roslyn/api/analyzers/multi-diagnostic-analyzer.md
-        - AssemblyAttributeAnalyzer: roslyn/api/analyzers/assembly-attribute-analyzer.md
-        - ReportsAttribute: roslyn/api/analyzers/reports-attribute.md
-        - TrackedFileTypeAnalyzer: roslyn/api/analyzers/tracked-file-analyzer.md
-        - BuildPropertyExtensions: roslyn/api/analyzers/build-property-extensions.md
-        - PipelineModel: roslyn/api/analyzers/pipeline-model.md
-      - Generators:
-        - Overview: roslyn/api/generators/index.md
-        - ForAttribute: roslyn/api/generators/for-attribute.md
-        - HintName: roslyn/api/generators/hint-name.md
-        - Source Output: roslyn/api/generators/source-output.md
-      - Extensions:
-        - Overview: roslyn/api/extensions/index.md
-        - Symbol Extensions: roslyn/api/extensions/symbol-extensions.md
-        - Type Extensions: roslyn/api/extensions/type-extensions.md
-        - Compilation Extensions: roslyn/api/extensions/compilation-extensions.md
-        - Attribute Extensions: roslyn/api/extensions/attribute-extensions.md
-        - String Extensions: roslyn/api/extensions/string-extensions.md
-        - Domain Extensions: roslyn/api/extensions/domain-extensions.md
-      - Code Fixes:
-        - Overview: roslyn/api/workspace/index.md
-        - Code Fix Base Classes: roslyn/api/workspace/code-fix-base.md
-        - Code Fix Actions: roslyn/api/workspace/code-fix-actions.md
-        - ProjectFileActionsBuilder: roslyn/api/workspace/file-actions.md
-        - ManagedPropsFile: roslyn/api/workspace/managed-props.md
-        - Context Extensions: roslyn/api/workspace/context-extensions.md
-      - Scriban:
-        - Overview: roslyn/api/scriban/index.md
-        - TemplateName: roslyn/api/scriban/template-name.md
-        - Template / RenderResult: roslyn/api/scriban/template.md
-        - Context Extensions: roslyn/api/scriban/context-extensions.md
-        - Experimental: roslyn/api/scriban/experimental.md
+      - Home: deepstaging/index.md
+      - Getting Started: deepstaging/getting-started.md
+      - Without Effects: deepstaging/without-effects.md
+      - Guide:
+          - Build a CMS: deepstaging/guide/index.md
+          - Project Setup: deepstaging/guide/project-setup.md
+          - Effects & Runtime: deepstaging/guide/effects-and-runtime.md
+          - Testing Effects: deepstaging/guide/testing-effects.md
+          - Commands & Queries: deepstaging/guide/commands-and-queries.md
+          - Validation & Authorization: deepstaging/guide/validation-and-authorization.md
+          - Event-Driven Architecture: deepstaging/guide/event-driven.md
+          - Infrastructure: deepstaging/guide/infrastructure.md
+          - Adding a Web API: deepstaging/guide/adding-a-web-api.md
+          - Integration Testing: deepstaging/guide/integration-testing.md
+      - Modules:
+          - Effects:
+              - Overview: deepstaging/modules/effects/index.md
+              - Pre-Built Modules: deepstaging/modules/effects/prebuilt.md
+              - Resilience: deepstaging/modules/effects/resilience.md
+              - DbContext: deepstaging/modules/effects/dbcontext.md
+          - Dispatch:
+              - Overview: deepstaging/modules/dispatch/index.md
+              - Validation: deepstaging/modules/dispatch/validation.md
+              - Authorization: deepstaging/modules/dispatch/authorization.md
+          - Event Store:
+              - Overview: deepstaging/modules/eventstore/index.md
+              - Projections: deepstaging/modules/eventstore/projections.md
+              - Upcasting: deepstaging/modules/eventstore/upcasting.md
+              - Marten Backend: deepstaging/modules/eventstore/marten.md
+          - Data Store:
+              - Overview: deepstaging/modules/datastore/index.md
+          - Strong IDs:
+              - Overview: deepstaging/modules/ids/index.md
+              - Converters: deepstaging/modules/ids/converters.md
+          - Configuration:
+              - Overview: deepstaging/modules/config/index.md
+              - Secrets: deepstaging/modules/config/secrets.md
+          - HTTP Client:
+              - Overview: deepstaging/modules/httpclient/index.md
+              - Authentication: deepstaging/modules/httpclient/authentication.md
+          - Event Queue:
+              - Overview: deepstaging/modules/eventqueue/index.md
+          - File Storage:
+              - Overview: deepstaging/modules/storage/index.md
+          - Search:
+              - Overview: deepstaging/modules/search/index.md
+          - Notifications:
+              - Overview: deepstaging/modules/notifications/index.md
+          - Audit Trail:
+              - Overview: deepstaging/modules/audit/index.md
+          - Background Jobs:
+              - Overview: deepstaging/modules/jobs/index.md
       - Testing:
-        - Overview: roslyn/api/testing/index.md
-        - RoslynTestBase: roslyn/api/testing/roslyn-test-base.md
-        - SymbolTestContext: roslyn/api/testing/symbol-test-context.md
-        - AnalyzerTestContext: roslyn/api/testing/analyzer-test-context.md
-        - GeneratorTestContext: roslyn/api/testing/generator-test-context.md
-        - CodeFixTestContext: roslyn/api/testing/codefix-test-context.md
-        - TemplateTestContext: roslyn/api/testing/template-test-context.md
-        - Assertions: roslyn/api/testing/assertions.md
-        - ReferenceConfiguration: roslyn/api/testing/reference-configuration.md
-      - TypeScript Emit:
-        - Overview: roslyn/api/typescript/index.md
-        - Emit: roslyn/api/typescript/emit.md
-        - Types: roslyn/api/typescript/types.md
-        - Expressions: roslyn/api/typescript/expressions.md
-        - Testing: roslyn/api/typescript/testing.md
-        - Integration: roslyn/api/typescript/integration.md
-      - LanguageExt:
-        - Overview: roslyn/api/languageext/index.md
-        - Types: roslyn/api/languageext/types.md
-        - Expressions: roslyn/api/languageext/expressions.md
-        - Eff Lifting: roslyn/api/languageext/eff-lifting.md
-        - Extensions: roslyn/api/languageext/extensions.md
-
+          - Overview: deepstaging/testing/index.md
+          - Test Runtime: deepstaging/testing/test-runtime.md
+          - Integration Testing: deepstaging/testing/integration-testing.md
+      - Concepts:
+          - MSBuild Integration: deepstaging/concepts/msbuild-integration.md
+      - Diagnostics Reference: deepstaging/diagnostics.md
+  - Roslyn:
+      - Home: roslyn/index.md
+      - Getting Started: roslyn/getting-started.md
+      - Templates: roslyn/templates.md
+      - Best Practices: roslyn/best-practices.md
+      - Guides:
+          - Project Organization: roslyn/guides/project-organization.md
+          - End-to-End Walkthrough: roslyn/guides/end-to-end.md
+          - Projection Pattern: roslyn/guides/projection-pattern.md
+          - Generators: roslyn/guides/generators.md
+          - Analyzers: roslyn/guides/analyzers.md
+          - CodeFixes: roslyn/guides/codefixes.md
+          - Testing: roslyn/guides/testing.md
+      - API Reference:
+          - Queries:
+              - Overview: roslyn/api/queries/index.md
+              - TypeQuery: roslyn/api/queries/type-query.md
+              - MethodQuery: roslyn/api/queries/method-query.md
+              - PropertyQuery: roslyn/api/queries/property-query.md
+              - FieldQuery: roslyn/api/queries/field-query.md
+              - ConstructorQuery: roslyn/api/queries/constructor-query.md
+              - EventQuery: roslyn/api/queries/event-query.md
+              - ParameterQuery: roslyn/api/queries/parameter-query.md
+          - Projections:
+              - Overview: roslyn/api/projections/index.md
+              - OptionalSymbol: roslyn/api/projections/optional-symbol.md
+              - ValidSymbol: roslyn/api/projections/valid-symbol.md
+              - OptionalAttribute: roslyn/api/projections/optional-attribute.md
+              - ValidAttribute: roslyn/api/projections/valid-attribute.md
+              - AttributeQuery: roslyn/api/projections/attribute-query.md
+              - OptionalArgument: roslyn/api/projections/optional-argument.md
+              - OptionalValue: roslyn/api/projections/optional-value.md
+              - Syntax Wrappers: roslyn/api/projections/syntax-wrappers.md
+              - XmlDocumentation: roslyn/api/projections/xml-documentation.md
+              - EquatableArray: roslyn/api/projections/equatable-array.md
+              - Snapshots: roslyn/api/projections/snapshots.md
+              - PipelineModel: roslyn/api/projections/pipeline-model.md
+          - Emit:
+              - Overview: roslyn/api/emit/index.md
+              - TypeBuilder: roslyn/api/emit/type-builder.md
+              - TypeBuilder Extensions: roslyn/api/emit/type-builder-extensions.md
+              - MethodBuilder: roslyn/api/emit/method-builder.md
+              - PropertyBuilder: roslyn/api/emit/property-builder.md
+              - FieldBuilder: roslyn/api/emit/field-builder.md
+              - ConstructorBuilder: roslyn/api/emit/constructor-builder.md
+              - Other Builders: roslyn/api/emit/other-builders.md
+              - BodyBuilder: roslyn/api/emit/body-builder.md
+              - Patterns: roslyn/api/emit/patterns.md
+              - Directives: roslyn/api/emit/directives.md
+              - GlobalUsings: roslyn/api/emit/global-usings.md
+              - Support Types: roslyn/api/emit/support-types.md
+          - Type System:
+              - Primitives: roslyn/api/emit/type-ref.md
+              - Types: roslyn/api/types.md
+              - Expressions: roslyn/api/expressions.md
+          - Analyzers:
+              - Overview: roslyn/api/analyzers/index.md
+              - SymbolAnalyzer: roslyn/api/analyzers/symbol-analyzer.md
+              - MultiDiagnosticSymbolAnalyzer: roslyn/api/analyzers/multi-diagnostic-analyzer.md
+              - AssemblyAttributeAnalyzer: roslyn/api/analyzers/assembly-attribute-analyzer.md
+              - ReportsAttribute: roslyn/api/analyzers/reports-attribute.md
+              - TrackedFileTypeAnalyzer: roslyn/api/analyzers/tracked-file-analyzer.md
+              - BuildPropertyExtensions: roslyn/api/analyzers/build-property-extensions.md
+              - PipelineModel: roslyn/api/analyzers/pipeline-model.md
+          - Generators:
+              - Overview: roslyn/api/generators/index.md
+              - ForAttribute: roslyn/api/generators/for-attribute.md
+              - HintName: roslyn/api/generators/hint-name.md
+              - Source Output: roslyn/api/generators/source-output.md
+          - Extensions:
+              - Overview: roslyn/api/extensions/index.md
+              - Symbol Extensions: roslyn/api/extensions/symbol-extensions.md
+              - Type Extensions: roslyn/api/extensions/type-extensions.md
+              - Compilation Extensions: roslyn/api/extensions/compilation-extensions.md
+              - Attribute Extensions: roslyn/api/extensions/attribute-extensions.md
+              - String Extensions: roslyn/api/extensions/string-extensions.md
+              - Domain Extensions: roslyn/api/extensions/domain-extensions.md
+          - Code Fixes:
+              - Overview: roslyn/api/workspace/index.md
+              - Code Fix Base Classes: roslyn/api/workspace/code-fix-base.md
+              - Code Fix Actions: roslyn/api/workspace/code-fix-actions.md
+              - ProjectFileActionsBuilder: roslyn/api/workspace/file-actions.md
+              - ManagedPropsFile: roslyn/api/workspace/managed-props.md
+              - Context Extensions: roslyn/api/workspace/context-extensions.md
+          - Scriban:
+              - Overview: roslyn/api/scriban/index.md
+              - TemplateName: roslyn/api/scriban/template-name.md
+              - Template / RenderResult: roslyn/api/scriban/template.md
+              - Context Extensions: roslyn/api/scriban/context-extensions.md
+              - Experimental: roslyn/api/scriban/experimental.md
+          - Testing:
+              - Overview: roslyn/api/testing/index.md
+              - RoslynTestBase: roslyn/api/testing/roslyn-test-base.md
+              - SymbolTestContext: roslyn/api/testing/symbol-test-context.md
+              - AnalyzerTestContext: roslyn/api/testing/analyzer-test-context.md
+              - GeneratorTestContext: roslyn/api/testing/generator-test-context.md
+              - CodeFixTestContext: roslyn/api/testing/codefix-test-context.md
+              - TemplateTestContext: roslyn/api/testing/template-test-context.md
+              - Assertions: roslyn/api/testing/assertions.md
+              - ReferenceConfiguration: roslyn/api/testing/reference-configuration.md
+          - TypeScript Emit:
+              - Overview: roslyn/api/typescript/index.md
+              - Emit: roslyn/api/typescript/emit.md
+              - Types: roslyn/api/typescript/types.md
+              - Expressions: roslyn/api/typescript/expressions.md
+              - Testing: roslyn/api/typescript/testing.md
+              - Integration: roslyn/api/typescript/integration.md
+          - LanguageExt:
+              - Overview: roslyn/api/languageext/index.md
+              - Types: roslyn/api/languageext/types.md
+              - Expressions: roslyn/api/languageext/expressions.md
+              - Eff Lifting: roslyn/api/languageext/eff-lifting.md
+              - Extensions: roslyn/api/languageext/extensions.md
   - Web:
-    - Home: web/index.md
-    - Testing: web/testing.md
+      - Home: web/index.md
+      - Testing: web/testing.md

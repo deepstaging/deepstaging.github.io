@@ -72,6 +72,9 @@ jobs:
           cp -r repos/roslyn/docs docs/roslyn
           cp -r repos/deepstaging-web/docs docs/web
 
+      - name: Assemble nav
+        run: python build/assemble-nav.py repos
+
       - name: Build site
         run: zensical build --strict
 

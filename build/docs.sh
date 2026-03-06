@@ -24,6 +24,9 @@ assemble_docs() {
     cp -r "$REPOS_DIR/deepstaging/docs" docs/deepstaging
     cp -r "$REPOS_DIR/roslyn/docs" docs/roslyn
     cp -r "$REPOS_DIR/deepstaging-web/docs" docs/web
+
+    echo "Assembling nav from repo mkdocs configs..."
+    "$VENV_DIR/bin/python" build/assemble-nav.py "$REPOS_DIR"
 }
 
 CMD="${1:-serve}"
