@@ -22,7 +22,6 @@ import yaml
 REPOS = [
     ("deepstaging", "Deepstaging", "deepstaging"),
     ("roslyn", "Roslyn", "roslyn"),
-    ("deepstaging-web", "Web", "web"),
 ]
 
 

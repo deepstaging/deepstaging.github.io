@@ -239,6 +239,4 @@ nav:
               - Expressions: roslyn/api/languageext/expressions.md
               - Eff Lifting: roslyn/api/languageext/eff-lifting.md
               - Extensions: roslyn/api/languageext/extensions.md
-  - Web:
-      - Home: web/index.md
-      - Testing: web/testing.md
+
