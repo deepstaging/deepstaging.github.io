@@ -43,13 +43,6 @@ jobs:
           token: ${{ secrets.DOCS_DEPLOY_PAT }}
           path: repos/roslyn
 
-      - name: Checkout Web
-        uses: actions/checkout@v6
-        with:
-          repository: deepstaging/deepstaging-web
-          token: ${{ secrets.DOCS_DEPLOY_PAT }}
-          path: repos/deepstaging-web
-
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
@@ -70,7 +63,6 @@ jobs:
         run: |
           cp -r repos/deepstaging/docs docs/deepstaging
           cp -r repos/roslyn/docs docs/roslyn
-          cp -r repos/deepstaging-web/docs docs/web
 
       - name: Assemble nav
         run: python build/assemble-nav.py repos
